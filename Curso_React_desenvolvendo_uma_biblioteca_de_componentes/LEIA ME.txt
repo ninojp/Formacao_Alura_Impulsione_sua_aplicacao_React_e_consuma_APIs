@@ -1,0 +1,3 @@
+Este curso em particular teve q ser colocado numa pasta externa por causa do Github Action.
+
+Acesse a pasta "Curso_React_desenvolvendo_uma_biblioteca_de_componentes" dentro da pasta raiz, ALURA.
