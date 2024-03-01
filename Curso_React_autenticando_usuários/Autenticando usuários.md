@@ -29,3 +29,61 @@ Nesta aula, o autor discute a implementação de uma modal de cadastro de usuár
 - Transformamos um layout do Figma numa aplicação funcional
 - Deixamos o formulário pronto para se comunicar com a API
 
+## Aula 02 - Autenticando o Usuário
+
+### Aula 02 - Preparando o ambiente
+
+partir de agora, vamos precisar da API rodando em nosso computador para que as nossas requisições sejam devidamente respondidas.
+
+Você pode [baixar](https://github.com/viniciosneves/api-alurabooks) ou clonar esse projeto.
+
+Na sequência, instale as dependências e execute o script para iniciar a API:
+
+> npm install
+> npm run start-auth
+
+### Aula 02 - Registrando um novo usuário - Vídeo 1
+
+Há formas diferentes de fazermos este POST, mas em nossas aulas usaremos uma biblioteca chamada Axios que nos ajudará a cuidar das requisições para o back-end. Abriremos o Terminal do VSCode, digitaremos:
+> npm i axios
+
+Nesta aula, o instrutor aborda o processo de registro de um novo usuário em uma API utilizando o React. Ele explica como configurar o ambiente para rodar a API, utilizando comandos como npm install e npm run start-auth. Em seguida, o instrutor utiliza a biblioteca Axios para fazer uma requisição POST para a API, enviando os dados do usuário. Ele mostra como tratar o retorno da requisição, exibindo mensagens de sucesso ou erro. O instrutor também utiliza a ferramenta de inspeção do navegador para verificar o comportamento do código. No próximo trecho do vídeo, será abordada a gestão do estado da modal.
+
+### Aula 02 - Gerenciando a modal - Vídeo 2
+
+Nesta aula, foi abordado o tema da gestão de estados da Modal de cadastro de usuário. Foi implementada a funcionalidade de abrir e fechar a Modal ao clicar no botão "Cadastrar" e ao cancelar ou fechar a caixa do formulário. A gestão dos estados foi realizada dentro do componente BarraNavegacao, utilizando o useState. Foram adicionadas as constantes ModalCadastroAberta e setModalCadastroAberta para controlar o estado da Modal. Foi necessário criar uma interface chamada PropsModalCadastroUsuario para resolver um erro indicado pelo VSCode. No retorno do componente ModalCadastroUsuario, foi substituído o valor true por aberta para vincular a propriedade recebida. Ao testar a aplicação, foi possível verificar que a Modal abre e fecha corretamente. No final da aula, foi proposto o desafio de criar uma nova Modal para o login do usuário.
+
+### Aula 02 - Autenticando o usuário - Vídeo 3
+
+Nesta aula, o instrutor aborda o processo de autenticação de usuários em um sistema utilizando React. O código apresentado mostra como exibir um modal de login na página inicial do Alura Books, com campos para inserir o email e senha do usuário. Ao clicar no botão "Fazer login", é feita uma requisição POST para a API, enviando as informações de login. O instrutor destaca a importância de tratar erros de forma adequada e exibir mensagens claras para o usuário. Além disso, é necessário persistir o token de acesso para utilizá-lo em requisições futuras. O sessionStorage é utilizado para armazenar o token. Por fim, o instrutor menciona a necessidade de lidar com a autenticação do usuário e enviar o token nas próximas requisições.
+
+### Aula 02 - Para saber mais: Local Storage x Session Storage
+
+A localStorage e a sessionStorage são APIs quase idênticas (em APIs e recursos), com a única exceção de persistência dos dados:
+
+A sessionStorage (como o nome sugere) está disponível apenas durante a sessão do navegador (e é excluída quando a guia ou janela é fechada) - mas sobrevive, no entanto, a atualização das páginas.
+
+Atenção!
+Os dados armazenados na localStorage ou na sessionStorage podem ser facilmente lidos ou alterados pelo cliente/navegador, portanto, muito cuidado sobre o que persistir aqui!
+
+Quer mergulhar ainda mais fundo?
+
+Dá uma olhada aqui na [documentação](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API).
+
+Aqui na alura você encontra o curso [JavaScript na Web: armazenando dados no navegador](https://cursos.alura.com.br/course/javascript-web-armazenando-dados-navegador), focado no funcionamento da localStorage.
+
+### Aula 02 - De olho nos fundamentos: estilos
+
+Você está sendo entrevistado pela Lorena, que é a líder técnica da AluraBooks. É uma conversa mais técnica, e ela te pergunta: Você consegue nomear 5 formas diferentes de se estilizar componentes React?
+
+Sua resposta é:
+Inline CSS, CSS in JS, styled components, CSS modules, stylable.
+
+Cinco de cinco, muito bom! Todas essas maneiras são realmente válidas para estilizar componentes React. Mas, só para garantir, vale lembrar também formas como CSS Normal, Sass & SCSS e Less.
+
+### Aula 02 - O que aprendemos nessa aula`:`
+
+- Obter um token de autenticação, dada a combinação de usuário e senha
+- Persistir o token obtido na session storage
+- A diferença entre local e session storage
+- Refatorar e encapsular código usando hooks customizados
