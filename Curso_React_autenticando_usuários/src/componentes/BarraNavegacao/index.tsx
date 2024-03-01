@@ -11,6 +11,15 @@ const BarraNavegacao = () => {
     const [modalCadastroAberta, setModalCadastroAberta] = useState(false);
     const [modalLoginAberta, setModalLoginAberta] = useState(false);
 
+    const token = sessionStorage.getItem('tokenAtual');
+    const [usuarioEstaLogado, setUsuarioEstaLogado] = useState<boolean>(token != null);
+    
+    //Callback
+    const aoEfetuarLogin = () => {
+        setModalLoginAberta(false);
+        setUsuarioEstaLogado(true);
+    }
+
     return (<nav className="ab-navbar">
         <h1 className="logo">
             <Link to="/">
@@ -50,7 +59,8 @@ const BarraNavegacao = () => {
             </li>
         </ul>
         <ul className="acoes">
-            <li>
+            {!usuarioEstaLogado && (<>
+                <li>
                 <BotaoNavegacao 
                     texto="Login" 
                     textoAltSrc="Icone representando um usuário" 
@@ -60,7 +70,7 @@ const BarraNavegacao = () => {
                 <ModalLoginUsuario 
                     aberta={modalLoginAberta} 
                     aoFechar={() => setModalLoginAberta(false)}
-                    // aoEfetuarLogin={() => aoEfetuarLogin()}
+                    aoEfetuarLogin={aoEfetuarLogin}
                 />
             </li>
             <li>
@@ -74,8 +84,13 @@ const BarraNavegacao = () => {
                     aberta={modalCadastroAberta} 
                     aoFechar={() => setModalCadastroAberta(false)} />
             </li>
+            </>)}
+            {usuarioEstaLogado && (<>
+                <li>
+                    <Link to='minha-conta/pedidos'>Minha Conta</Link>
+                </li>
+            </>)}
         </ul>
     </nav>)
 }
-
-export default BarraNavegacao
+export default BarraNavegacao;

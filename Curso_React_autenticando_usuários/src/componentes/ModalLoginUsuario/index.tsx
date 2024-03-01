@@ -6,10 +6,10 @@ import axios from "axios";
 interface IModalLoginUsuarioProps{
     aberta: boolean
     aoFechar: () => void
-    // aoEfetuarLogin: () => void
+    aoEfetuarLogin: () => void
 }
 
-const ModalLoginUsuario = ({aberta, aoFechar}: IModalLoginUsuarioProps) => {
+const ModalLoginUsuario = ({aberta, aoFechar, aoEfetuarLogin}: IModalLoginUsuarioProps) => {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
@@ -25,7 +25,7 @@ const ModalLoginUsuario = ({aberta, aoFechar}: IModalLoginUsuarioProps) => {
             setEmail('');
             setSenha('');
             aoFechar();
-            // aoEfetuarLogin();
+            aoEfetuarLogin();
         })
         .catch(erro => {
             if(erro?.response?.data?.message){

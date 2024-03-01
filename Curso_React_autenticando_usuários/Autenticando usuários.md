@@ -87,3 +87,43 @@ Cinco de cinco, muito bom! Todas essas maneiras são realmente válidas para est
 - Persistir o token obtido na session storage
 - A diferença entre local e session storage
 - Refatorar e encapsular código usando hooks customizados
+
+## Aula 03 - Autenticando Requisições
+
+### Aula 03 - Gerindo o status do login - Vídeo 1
+
+Nesta aula, o instrutor aborda como controlar o status de login do usuário em uma aplicação web utilizando React. É criado um estado chamado "usuarioEstaLogado" que indica se o usuário está logado ou não. O token de autenticação é validado utilizando o sessionStorage. Dependendo do estado de login do usuário, a barra de navegação exibe elementos diferentes. Também é adicionada a funcionalidade de fechar o modal de login quando o usuário efetua o login com sucesso. O instrutor menciona que, por enquanto, o estado de login está sendo gerenciado localmente na barra de navegação, mas existem ferramentas como Redux e Recoil para gerenciamento global, se necessário.
+
+### Aula 03 - Página de pedidos - Vídeo 2
+
+Nesta aula, o instrutor explica como configurar a página de pedidos em um projeto React. Ele mostra como adicionar a rota para a página de pedidos no arquivo de rotas e cria o componente "Pedidos" que será renderizado nessa rota. O componente possui um título "Meus pedidos" e alguns atributos de exemplo, como número do pedido, data, valor total e data de entrega. Além disso, é adicionado um botão para exibir mais detalhes do pedido. O instrutor menciona a necessidade de estilizar a página de pedidos com CSS e sugere consultar o design do projeto no Figma para obter referências visuais.
+
+### Aula 03 - Estilizando o pedido - Vídeo 3
+
+Nesta aula, o instrutor adicionou estilo à página de pedidos de um sistema. Ele mostrou como adicionar espaçamento interno e formatar o título. Além disso, ele mostrou como adicionar estilos para cada pedido e como inspecionar os elementos no navegador para verificar os estilos aplicados. O próximo passo será solicitar a lista de pedidos ao back-end e exibir a resposta utilizando o Axios.
+
+### Aula 03 - Requisições autenticadas - Vídeo 4
+
+Nesta aula, o instrutor aborda a autenticação de requisições em React. Ele explica a necessidade de enviar um token válido para obter os dados corretos da API. Utilizando a biblioteca Axios, ele mostra como instalar e importar o Axios no código. Em seguida, utiliza o hook useEffect para fazer a requisição apenas na primeira renderização do componente. O instrutor também mostra como adicionar o token de autenticação no header da requisição e como tratar os possíveis erros utilizando os métodos then e catch do Axios. Por fim, destaca a importância de utilizar o estado local do React para armazenar e manipular os dados retornados pela API.
+
+### Aula 03 - Exibindo os pedidos - Vídeo 5
+
+>Dentro de "Data do pedido:" incluiremos um novo objeto de data *new Date().toLocaleDateString* que possui o formato de data pedido.data (AAAA/MM/DD) aceito pelo construtor.  
+>Dentro de "Valor total" poderíamos utilizar várias abordagens diferentes para inserção, deletaremos o "R$" e adicionaremos a função NumberFormat() presente na *biblioteca Intl do React*, informando nela o idioma e um objeto de configuração, que por sua vez possuirá um style de moeda e o tipo de moeda a ser utilizado. Em seguida adicionaremos o formatador .format que possuirá em seu interior pedido.total. Esse comando formatará o campo para utilizar a o Real brasileiro e seu respectivo formato: R$ + vírgula + duas casas decimais após a vírgula.  
+>Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(pedido.total)
+
+Nesta aula, o autor discute a implementação de autenticação em uma API e a exibição dos pedidos em um projeto chamado "Alura Books". O código utiliza o useState para armazenar os pedidos em um estado local. Em seguida, é feita uma requisição utilizando o axios.get para obter os pedidos da API, e o resultado é armazenado no estado local utilizando o setPedidos. Os pedidos são exibidos na interface utilizando o método map, e os valores monetários são formatados utilizando a função NumberFormat da biblioteca Intl. O autor também sugere melhorias no código para evitar repetições e facilitar a manutenção.
+
+### Aula 03 - De olho nos fundamentos: hooks
+
+Você sabe o que é um hook no React.JS e quais problemas ele resolve?
+
+Hooks foram adicionados no React 16.8 e permitem que usemos state e outros recursos do React sem ter de escrever uma classe.
+
+Bingo! Essa foi na mosca, e vem direto da documentação pra cá, se liga [aqui](https://pt-br.legacy.reactjs.org/docs/hooks-overview.html).
+
+### Aula 03 - O que aprendemos nessa aula`:`
+
+- Implementar rotas aninhadas para a área logada
+- Realizar requisições autenticadas, passando o token no cabeçalho
+- Excluir pedidos e sincronizar com o estado local
