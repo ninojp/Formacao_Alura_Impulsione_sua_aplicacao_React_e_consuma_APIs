@@ -1,34 +1,25 @@
 import { AbBotao } from "ds-alurabooks";
-import './Pedidos.css';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { IPedido } from "../../interfaces/IPedido";
+import http from "../../http";
+import './Pedidos.css';
 
 const Pedidos = () => {
     const [pedidos, setPedidos] = useState<IPedido[]>([]);
     const formatador = Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'});
     useEffect(() => {
-        const token = sessionStorage.getItem('tokenAtual');
-        axios.get<IPedido[]>('http://localhost:8000/pedidos', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        }).then(resposta => setPedidos(resposta.data))
-            .catch(erro => console.log(erro))
-
-        }, []);
+        http.get<IPedido[]>('pedidos')
+        .then(resposta => setPedidos(resposta.data))
+        .catch(erro => console.log(erro))
+    }, []);
         
-        const excluirPedido = (pedido: IPedido) => {
-            const token = sessionStorage.getItem('tokenAtual');
-            axios.delete<IPedido[]>(`http://localhost:8000/pedidos/${pedido.id}`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            }).then(() => {
-                setPedidos(pedidos.filter(p => p.id !== pedido.id))
-            })
-            .catch(erro => console.log(erro))
-        }
+    const excluirPedido = (pedido: IPedido) => {
+        http.delete<IPedido[]>(`pedidos/${pedido.id}`)
+        .then(() => {
+            setPedidos(pedidos.filter(p => p.id !== pedido.id))
+        })
+        .catch(erro => console.log(erro))
+    }
 
     return (
         <section className="pedidos">

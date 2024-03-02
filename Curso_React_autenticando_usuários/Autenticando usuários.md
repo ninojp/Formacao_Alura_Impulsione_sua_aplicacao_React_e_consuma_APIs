@@ -127,3 +127,49 @@ Bingo! Essa foi na mosca, e vem direto da documentação pra cá, se liga [aqui]
 - Implementar rotas aninhadas para a área logada
 - Realizar requisições autenticadas, passando o token no cabeçalho
 - Excluir pedidos e sincronizar com o estado local
+
+## Aula 04 - Encapsulamento
+
+### Aula 04 - Encapsulando o axios - Vídeo 1
+
+Nesta aula, o instrutor aborda o encapsulamento do Axios para melhorar a experiência do desenvolvedor. Ele cria uma instância única do Axios com configurações específicas, como a URL base e os headers necessários. Em seguida, ele substitui as chamadas do Axios por chamadas da instância criada. Além disso, o instrutor menciona a criação de interceptadores para lidar com a inclusão automática de headers em todas as requisições. O objetivo é melhorar a organização e a reutilização de código, evitando a repetição em cada requisição.
+
+### Aula 04 - Interceptando requisições HTTP - Vídeo 2
+
+Nesta aula, o instrutor ensina como realizar interceptações HTTP utilizando o axios. Ele mostra como adicionar interceptors de requisição ao axios, que são funções executadas antes de enviar uma requisição e permitem manipular o objeto de configuração da requisição. O instrutor demonstra como adicionar um interceptor de requisição que verifica se existe um token de autenticação na sessionStorage e, caso exista, adiciona esse token ao header de autorização da requisição. Caso não exista um token, o interceptor retorna um erro no console. O instrutor também mostra como remover o trecho de código que adicionava o header de autorização no arquivo "index.tsx" da pasta "Pedidos". Ao isolar o axios na camada de HTTP, o código fica mais conciso e limpo.
+
+### Aula 04 - Autenticação x Autorização x Segurança - Vídeo 3
+
+Nesta aula, o tema abordado foi autenticação, autorização e segurança. Foi explicado que a autenticação é o processo pelo qual uma pessoa prova ser quem ela diz ser, através de uma senha. Já a autorização está relacionada ao papel que a pessoa desempenha dentro da companhia, concedendo acessos e papéis específicos com base no perfil. Além disso, foi mencionada a importância da segurança na comunicação entre o computador e o servidor, através dos protocolos HTTP e HTTPS. Também foi abordado o controle de segurança através do CORS e o trabalho da OWASP na identificação e mitigação de vulnerabilidades de aplicação.
+
+A autenticação torna possível que eu, pessoa usuária, prove que sou realmente quem eu digo que sou — o famoso "cara-crachá". Cada pessoa usuária possui uma senha, e se ela coincidir com o conteúdo previamente cadastrado na API, nos tornamos pessoas usuárias autenticadas. O sistema nos dará um token e entenderá que somos mesmo quem dizemos ser.
+
+A autorização configura um passo além da autenticação. Dada uma pessoa usuária logada, é necessário saber qual o seu papel dentro da companhia: diretor, VIP, segurança, profissional de TI... Para cada papel, será configurada uma gama específica de privilégios. Na fase de autorização, o sistema sabe que somos pessoas autenticadas e nos concederá papéis e acessos específicos, ou seja, exercerá um controle de acesso com base no perfil da pessoa usuária.
+
+Existe também o controle de segurança através do CORS que utiliza o cabeçalho "Access-Control-Allow-Origin" (em português, "compartilhamento de recursos de origens diferentes"). O seu trabalho é controlar as origens que podem ou não se conectar à nossa API. Quando falamos sobre um "erro de CORS" queremos dizer que um domínio não autorizado tentou realizar requisições para a API. O conteúdo sobre CORS pode ser acessado [neste link](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS).
+
+OWASP que disponibiliza uma lista com as 10 vulnerabilidades de aplicação mais conhecidas e também os seus respectivos meios de mitigação. A lista da OWASP pode ser acessada por [este link](https://owasp.org/www-project-top-ten/).
+
+Disponibilizaremos um [artigo que aborda detalhadamente](https://www.alura.com.br/artigos/autenticacao-autorizacao-seguranca-no-front-end) os tipos de autenticação e de autorização, ao mesmo tempo em que doa mais detalhes sobre a lista do OWASP e como lidar com as vulnerabilidades de aplicação.
+
+### Aula 04 - Para saber mais: status HTTP
+
+Quando consumimos uma API HTTP, temos vários códigos que identificam o status de cada requisição:
+
+1xx para informação
+2xx para sucesso
+3xx para redirecionamento
+4xx para erros de cliente
+5xx para demais erros
+Pensando no perfil Dev em T e em mergulhos mais profundos, fica aqui o link para o [curso sobre HTTP](https://cursos.alura.com.br/course/http-fundamentos).
+
+Se você já conhece o protocolo e quer saber ainda mais, estou contigo porque eu também sou muito curioso!
+
+Fica [aqui um link](https://www.alura.com.br/artigos/rest-principios-e-boas-praticas) para um artigo sobre o padrão REST, que é o utilizado na API atual.
+
+### Aula 04 - O que aprendemos nessa aula`:`
+
+- Criar uma instância do axios e definir alguns comportamentos padrão para ela
+- Interceptar requisições
+- Interceptar respostas
+- Tratar erros específicos e direcionar o fluxo da aplicação

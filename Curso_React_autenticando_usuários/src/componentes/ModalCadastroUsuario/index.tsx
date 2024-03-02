@@ -2,7 +2,7 @@ import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks"
 import { useState } from "react"
 import imagemPrincipal from './assets/login.png'
 import './ModalCadastroUsuario.css'
-import axios from 'axios';
+import http from "../../http";
 
 interface IModalCadastroAbertaProps {
     aberta: boolean
@@ -20,7 +20,7 @@ const ModalCadastroUsuario = ({aberta, aoFechar}: IModalCadastroAbertaProps) => 
     const aoSubmeterFormular = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         const usuario = {nome, email, senha, endereco, cep, complemento}
-        axios.post('http://localhost:8000/public/registrar', usuario)
+        http.post('public/registrar', usuario)
             .then(() => {
                 alert('Usuário foi cadastrado com sucesso!')
                 setNome('')
@@ -92,5 +92,4 @@ const ModalCadastroUsuario = ({aberta, aoFechar}: IModalCadastroAbertaProps) => 
         </section>
     </AbModal>)
 }
-
-export default ModalCadastroUsuario
+export default ModalCadastroUsuario;
