@@ -6,7 +6,7 @@ import usuario from './assets/usuario.svg'
 import './BarraNavegacao.css'
 import { useEffect, useState } from "react"
 import ModalLoginUsuario from "../ModalLoginUsuario"
-import { ICategorias } from "../../interfaces/ICategorias"
+import { ICategoria } from "../../interfaces/ICategoria"
 import http from "../../http"
 
 const BarraNavegacao = () => {
@@ -15,9 +15,9 @@ const BarraNavegacao = () => {
     const token = sessionStorage.getItem('tokenAtual');
     const [usuarioEstaLogado, setUsuarioEstaLogado] = useState<boolean>(token != null);
 
-    const [categorias, setCategorias] = useState<ICategorias[]>([]);
+    const [categorias, setCategorias] = useState<ICategoria[]>([]);
     useEffect(() => {
-        http.get<ICategorias[]>('categorias')
+        http.get<ICategoria[]>('categorias')
             .then(resposta => {
                 console.log(resposta.data)
                 setCategorias(resposta.data)

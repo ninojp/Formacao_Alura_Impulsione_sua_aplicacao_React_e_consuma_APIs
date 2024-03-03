@@ -24,3 +24,46 @@ Nesta aula, o palestrante discute sobre os padrões de obtenção de dados, tamb
 - Combinar os hooks useState e useEffect para obter dados e armazená-los no estado local;
 - Uma nova funcionalidade do React Router, a useLoaderData;
 - Padrões de obtenção de dados: standalone, higher order component e via hooks.
+
+## Aula 02 - Paginas de Categorias
+
+### Aula 02 - Página base - Vídeo 01
+
+Nesta aula, o instrutor ensina como criar o componente "TituloPrincipal" e utilizá-lo na página de categoria. Ele mostra o código do componente e explica que ele retorna o título da página. Em seguida, o instrutor cria um novo componente chamado "Categoria" e explica que ele será exportado por padrão. Dentro desse componente, ele utiliza o elemento "section" e chama o componente "TituloPrincipal" passando a propriedade "texto" com o valor "Categoria". O instrutor também cria uma nova rota com o path "/categorias/:slug" e explica que o ":slug" será capturado e utilizado com o useParams do React Router. Ele verifica no navegador se a rota está funcionando corretamente e mostra que o componente "TituloPrincipal" está sendo renderizado na página. No próximo vídeo, ele irá mostrar como pegar o slug da URL, enviar para a API e obter as categorias correspondentes.
+
+### Aula 02 - Página da categoria - Vídeo 02
+
+Nesta aula, o instrutor explica como buscar uma categoria específica na API utilizando React Query. Ele mostra como passar o parâmetro slug na URL para pesquisar por uma categoria específica. Utilizando o hook useEffect, ele faz a requisição à API e utiliza o método then para obter a primeira categoria retornada. Em seguida, ele atualiza o estado com essa categoria e utiliza o componente TituloPrincipal para exibir o nome da categoria na página. O instrutor também menciona a importância de adicionar as dependências corretas no array de dependências do useEffect para evitar renderizações infinitas. Ele menciona que ainda há mais coisas a serem feitas, como indicar o estado de carregamento para o usuário.
+
+### Aula 02 - Criando um loader - Vídeo 03
+
+> loading.io/css
+
+Nesta aula, o instrutor ensina como criar um componente de loader utilizando CSS puro. Ele utiliza o site "loading.io/css" para escolher um loader e mostra o código CSS e HTML correspondente. Em seguida, ele cria um novo componente chamado "Loader" no diretório "src > componentes" do projeto React. O código do loader escolhido é copiado para o componente, com algumas alterações, como a mudança da cor. O instrutor importa o arquivo CSS no componente e o adiciona em um local específico da página. Ele explica a necessidade de criar um novo estado chamado isLoading para controlar quando o loader deve ser exibido. O instrutor menciona o uso do useState para implementar essa lógica.
+
+### Aula 02 - Exibindo o loader condicionalmente - Vídeo 04
+
+Nesta aula, o instrutor aborda a exibição condicional de um componente de carregamento em uma aplicação React. Ele utiliza o hook useState para criar um estado chamado "estaCarregando" que controla a exibição do componente de carregamento. O hook useEffect é utilizado para atualizar o estado "estaCarregando" de acordo com o progresso da requisição. O instrutor também menciona a importância de cuidar manualmente do estado local e sugere o uso do React Query como uma alternativa para facilitar o data fetching e o gerenciamento de estados. No próximo vídeo, ele ensinará como utilizar o React Query para realizar o data fetching de forma mais eficiente.
+
+### Aula 02 - Para saber mais: Async / Await
+
+Durante o curso, nós utilizamos a sintaxe de async / await para aguardar que promessas sejam resolvidas.
+
+Isso pode facilitar a escrita de código em alguns cenários, porque é uma forma diferente para lidarmos com promessas [(Promises)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+Pensando que isso poderia gerar uma curiosidade sobre o tema, vou deixar aqui especialmente pra você um [artigo do Dev Soutinho](https://www.alura.com.br/artigos/async-await-no-javascript-o-que-e-e-quando-usar) sobre o tema.
+
+### Aula 02 - Entrevista de emprego: JSX
+
+Quais as vantagens de utilizarmos o JSX?
+
+O JSX é somente um açúcar sintático (syntactic sugar) para a função React.createElement(component, props, ...children).
+
+Na mosca. Quando usamos o React, trabalhamos com os componentes que utilizam código HTML diretamente do código TypeScript. O JSX nos ajuda justamente nisso, permitindo que escrevamos código "html" que na verdade vai ser convertido para TypeScript exigido pelo React. Por sinal, essa conversão só é possível porque já está habilitado o React JSX Transform, do [Babel](https://babeljs.io/docs/babel-plugin-transform-react-jsx/).
+
+### Aula 02 - O que aprendemos nessa aula`:`
+
+- Controlar manualmente um estado que indica que uma requisição está sendo feita;
+- Criar um componente que indica o status de carregamento, que chamamos de Loader;
+- Exibir, condicionalmente, o componente de Loader;
+- Como lidar com promessas utilizando async e await.
