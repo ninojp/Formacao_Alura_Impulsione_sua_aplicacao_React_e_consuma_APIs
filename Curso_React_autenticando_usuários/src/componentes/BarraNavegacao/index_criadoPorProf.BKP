@@ -1,0 +1,93 @@
+import { useState } from 'react'
+import BotaoNavegacao from '../BotaoNavegacao'
+import ModalCadastroUsuario from '../ModalCadastroUsuario'
+import ModalLoginUsuario from '../ModalLoginUsuario'
+import logo from './assets/logo.png'
+import usuario from './assets/usuario.svg'
+import './BarraNavegacao.css'
+import { Link } from 'react-router-dom'
+
+interface BarraNavegacaoProps {
+    estaLogado: boolean
+    aoEfetuarLogin: (usuario: IUsuario) => void
+    aoEfetuarLogout: () => void
+}
+
+const BarraNavegacao = ({ estaLogado, aoEfetuarLogin, aoEfetuarLogout }: BarraNavegacaoProps) => {
+    const [modalLoginAberta, setModalLoginAberta] = useState(false)
+    const [modalCadastroAberta, setModalCadastroAberta] = useState(false)
+
+    const AcoesDeslogadas = (<ul className="acoes">
+        <li>
+            <BotaoNavegacao texto="Login" onClick={() => setModalLoginAberta(true)} textoAltSrc="Icone representando um usuário" imagemSrc={usuario} />
+            <ModalLoginUsuario aoEfetuarLogin={aoEfetuarLogin} aberta={modalLoginAberta} aoFechar={() => setModalLoginAberta(false)} />
+        </li>
+        <li>
+            <BotaoNavegacao texto="Cadastrar-se" onClick={() => setModalCadastroAberta(true)} textoAltSrc="Icone representando um usuário" imagemSrc={usuario} />
+            <ModalCadastroUsuario aberta={modalCadastroAberta} aoFechar={() => setModalCadastroAberta(false)} />
+        </li>
+    </ul>)
+
+    const AcoesLogadas = (<ul className="acoes">
+        <li className="minha-conta">
+            <a className="btn-login" href="#!">
+                <img src={usuario} alt="Icone representando um usuário" />
+            </a>
+            <ul className="submenu">
+                <li>
+                    <Link to="/area-logada/pedidos">
+                        Pedidos
+                    </Link>
+                </li>
+                <li>
+                    <a href="#!" onClick={aoEfetuarLogout}>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>)
+
+    return (<nav className="ab-navbar">
+        <h1 className="logo">
+            <Link to="/">
+                <img className="logo" src={logo} alt="Logo da AluraBooks" />
+            </Link>
+        </h1>
+        <ul className="navegacao">
+            <li>
+                <a href="#!">Categorias</a>
+                <ul className="submenu">
+                    <li>
+                        <Link to="/">
+                            Frontend
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/">
+                            Programação
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/">
+                            Infraestrutura
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/">
+                            Business
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/">
+                            Design e UX
+                        </Link>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        {estaLogado ? AcoesLogadas : AcoesDeslogadas}
+    </nav>)
+}
+
+export default BarraNavegacao

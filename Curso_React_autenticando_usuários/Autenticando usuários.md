@@ -173,3 +173,62 @@ Fica [aqui um link](https://www.alura.com.br/artigos/rest-principios-e-boas-prat
 - Interceptar requisições
 - Interceptar respostas
 - Tratar erros específicos e direcionar o fluxo da aplicação
+
+## Aula 05 - Segurança no Front-End
+
+### Aula 05 - Deslogando o usuário - Vídeo 1
+
+Nesta aula, o instrutor abordou a implementação da funcionalidade de logout em um aplicativo web utilizando React. Ele mostrou como adicionar o botão de logout na barra de navegação, implementar a função de logout e redirecionar o usuário para a página inicial após o logout. Além disso, foi mencionado que o estado da aplicação, ou seja, se o token é válido ou não, será discutido na próxima aula.
+
+### Aula 05 - Estratégias de logout - Vídeo 2
+
+Nesta aula, o instrutor demonstra como realizar testes em uma aplicação web. Ele mostra como verificar o token de autenticação no navegador, utilizando a aba "Application" e "Session Storage". Em seguida, é utilizado o Postman para fazer um pedido GET para a API, passando o token no cabeçalho "Authorization". Caso o token seja removido, ocorrerá um erro de falta de autorização. O instrutor também explica sobre estratégias de logout, como colocar o token em uma lista de inválidos ou utilizar um tempo de vida menor. No final, ele menciona que é possível obter mais informações sobre Tokens JWT no curso.
+
+### Aula 05 - Para saber mais: Postman
+
+O Postman é uma ferramenta incrível que ajuda muitos de nós, pessoas desenvolvedoras frontend. Com essa API, conseguimos fazer requisições de diversos tipos e com muitas opções de cabeçalhos, do corpo da requisição e por aí vai. Pensando nisso, eu separei pra você dois conteúdos bacanudos aqui da Alura:
+
+Assista ao [Alura+](https://cursos.alura.com.br/extra/alura-mais/interagindo-com-apis-usando-postman-c182) do instrutor Vinicius Dias, que explica como interagir com as APIs usando o Postman.
+
+Assista um [Alura+](https://cursos.alura.com.br/extra/alura-mais/testes-de-api-com-postman-c883) da instrutora Ju Amoasei, que demonstra como a gente consegue testar APIs usando o Postman
+
+### Aula 05 - Para saber mais: HTTP x HTTPS
+
+Entender os fundamentos é essencial, quando pensamos na evolução do dev em `<T>`.
+
+Num cenário onde a nossa aplicação faz uma requisição a uma API, é muito provável que existam outros servidores intermediários no provedor antes que os dados realmente cheguem no servidor de destino.
+
+Com a resposta é a mesma coisa, ela volta passando por esses servidores no meio antes de chegar até nosso navegador. O problema é que, quando usamos HTTP, qualquer servidor no meio pode espionar os dados enviados, algo totalmente inseguro! Imagine se essas informações fossem relativas a contas bancárias. Não seria nada seguro!
+
+Para estes outros cenários, existe o HTTPS, que basicamente é o HTTP comum, porém com uma camada adicional de segurança/criptografia que antes era SSL, mas posteriormente passou a ser também TLS. É muito comum que estas duas siglas sejam encontradas juntas como SSL/TLS por se tratarem da mesma questão de segurança. Sendo assim, temos dois termos:
+
+HTTP: HyperText Transfer Protocol
+SSL/TLS: Secure Sockets Layer / Transport Layer Security
+O HTTPS para garantir segurança usa criptografia baseada em chaves públicas e privadas e para gerar essas chaves públicas e privadas é preciso garantir a identidade de quem possui essas chaves e isso é feito a partir de um certificado digital.
+
+### Aula 05 - Para saber mais: Tokens JWT
+
+Durante as aulas, aprendemos uma forma de obter o token (login) e enviá-lo no cabeçalho nas requisições que precisam ser autenticadas.
+
+E o tipo de token que utilizamos é o JsonWebToken.
+
+Para mais detalhes, confira [esse Alura+](https://cursos.alura.com.br/extra/alura-mais/o-que-e-json-web-token-jwt--c203) do instrutor Vinicius Dias sobre o assunto ou [esse artigo](https://www.alura.com.br/artigos/o-que-e-json-web-tokens) do instrutor Neilton Seguins.
+
+### Aula 05 - De olho nos fundamentos: Web Vitals
+
+Hoje, quando criamos uma aplicação React, ela já vem com o web-vitals configurado. Qual o propósito dele?
+
+Web Vitals são um conjunto de métricas úteis que visam capturar a experiência do usuário de uma página da web.
+
+Exatamente, e no caso do create-react-app ele cria a aplicação utilizando [esse pacote](https://github.com/GoogleChrome/web-vitals).
+
+### Aula 05 - O que aprendemos nessa aula, você aprendeu como`:`
+
+- Lidar com o logout do lado do cliente
+- Estratégias de logout
+- Segurança com HTTPS
+- Json Web Tokens
+
+### Aula 05 - Conclusão - Vídeo 3
+
+Nesta aula do curso de React: Autenticação, os alunos aprenderam sobre segurança no frontend. Durante o curso, eles desenvolveram o projeto Alura Books, que envolve a implementação de autenticação. Foram abordados tópicos como a criação de uma Modal de Cadastro e uma Modal de Login, onde o token é armazenado na sessão. Os alunos também aprenderam a pegar e enviar o token no cabeçalho das requisições, utilizando uma nova forma de interceptar as requisições. Além disso, foram propostos desafios para fixar e aprimorar as habilidades com React. O curso não termina aqui, e os alunos são incentivados a acompanhar a sequência do curso para aprofundar ainda mais seus conhecimentos.
