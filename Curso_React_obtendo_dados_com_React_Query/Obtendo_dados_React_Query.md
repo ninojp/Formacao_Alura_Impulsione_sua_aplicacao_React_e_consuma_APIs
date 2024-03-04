@@ -67,3 +67,21 @@ Na mosca. Quando usamos o React, trabalhamos com os componentes que utilizam có
 - Criar um componente que indica o status de carregamento, que chamamos de Loader;
 - Exibir, condicionalmente, o componente de Loader;
 - Como lidar com promessas utilizando async e await.
+
+## Aula 03 - React Query
+
+### Aula 03 - Implementando o useQuery - Vídeo 01
+
+> [TanStack Query](https://tanstack.com/query/latest)
+
+Nesta aula, o instrutor ensina como instalar e usar a biblioteca React Query. Ele mostra como envolver os componentes que usarão o hook useQuery com o componente `<QueryClientProvider>`, além de criar uma instância do QueryClient. Também é explicada a necessidade de implementar o useQuery em um componente chamado Categoria, mostrando como importar e definir os parâmetros corretamente. A refatoração será abordada no próximo vídeo.
+
+### Aula 03 - extraindo a chamada HTTP - Vídeo 02
+
+Nesta aula, o instrutor realiza uma refatoração no código, concentrando a função obterCategoriaPorSlug na camada de http. Ele utiliza o Axios para fazer uma requisição GET para a rota 'categorias' e utiliza await para aguardar a execução da promessa. Em seguida, ele utiliza o useQuery para obter os dados da categoria e remove os imports desnecessários. No final, ele identifica um bug e menciona que irá resolvê-lo no próximo vídeo.
+
+### Aula 03 - De olho nas dependências - Vídeo 03
+
+Nesta aula, o instrutor analisa um problema nas requisições feitas na página. Ele percebe que o valor do parâmetro não está sendo atualizado corretamente. Para resolver isso, ele mostra como passar o valor do parâmetro como uma dependência da query. Após fazer essa alteração, ele testa a funcionalidade no navegador e verifica que a requisição é feita corretamente. O instrutor menciona que ainda há mais coisas a serem feitas, como construir os livros da categoria, e convida o aluno para o próximo desafio na próxima aula.
+
+### Aula 03 - 
