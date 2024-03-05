@@ -91,3 +91,72 @@ Nesta aula, o instrutor analisa um problema nas requisições feitas na página.
 - Configurar as dependências de uma Query;
 - Destructuring de objetos.
 
+## Aula 04 - Listando os Livros
+
+### Aula 04 - Livros da categoria - Vídeo 01
+
+Nesta aula, o professor discute sobre a refatoração da interface de livros e a forma como ela obtém os livros das categorias "Últimos lançamentos" e "Mais vendidos" através de uma API. Ele mostra como criar o componente "ListaLivros" e como receber a categoria através das props. Além disso, ele menciona a necessidade de tratar o caso em que a categoria ainda não foi carregada, utilizando um loader. O professor também demonstra como testar a obtenção da categoria através de um console.log no navegador. No próximo vídeo, ele irá mostrar como exibir os livros na interface.
+
+### Aula 04 - Exibindo os dados - Vídeo 02
+
+Nesta aula, o instrutor aborda a obtenção de dados em um projeto React usando o pacote React Query. Ele explica como usar a função useQuery para obter os dados, passando um nome identificador da query. Em seguida, ele cria uma função que faz uma requisição para o endpoint de livros, passando uma categoria como parâmetro. Essa função é passada como callback para o useQuery, que irá chamá-la sempre que a categoria mudar. O resultado é armazenado em uma constante e o instrutor verifica se os dados estão sendo obtidos corretamente. Por fim, ele mapeia a lista de livros para renderizar os cards de cada livro na tela.
+
+### Aula 04 - Estilos da lista - Vídeo 03
+
+Nesta aula, o instrutor ensina como arrumar o layout de uma lista de livros em um componente chamado "ListaLivros". Ele importa um arquivo CSS inexistente e cria o arquivo "ListaLivros.css". Em seguida, define uma classe ".livros" no CSS e aplica propriedades para estilizar a lista de livros, como "display: flex", "justify-content: space-around", "gap: 24px", "flex-wrap: wrap" e "max-width: 80%". Ele também aplica uma margem de 24px para centralizar a lista. Ao visualizar a página no Firefox, verifica que o layout está correto. O próximo desafio será construir a página de livros.
+
+### Aula 04 - Um desafio para a todos governar - Vídeo 04
+
+Nesta aula, o instrutor apresenta um desafio especial para os alunos. Ele mostra a página do Figma no navegador Firefox, que exibe a capa de um livro, título, descrição, autor e uma guia de componentes para selecionar o formato do livro desejado. O instrutor explica que os componentes "ABGrupoOpcoes" e "ABInputQuantidade" foram desenvolvidos anteriormente e estão disponíveis para download. Esses componentes fazem parte do Design System e os alunos devem praticar a montagem de uma página complexa utilizando-os. O objetivo é exibir os dados dos livros na tela. O instrutor incentiva os alunos a fazerem o desafio no seu próprio ritmo e oferece um gabarito com o código necessário. Ele deseja boa sorte aos alunos e os encoraja a praticar.
+
+### Aula 04 - Resenha do desafio - Vídeo 05
+
+Nesta aula, o instrutor discute o desenvolvimento de uma página complexa que detalha um livro. Ele compartilha conceitos sobre sua abordagem na construção da página, mostrando a capa do livro, opções de compra e comportamento desejado. Utilizando o useState, o useQuery e o mapeamento dos dados da API, ele desenvolve o layout da página. O instrutor também menciona a programação defensiva ao lidar com casos em que um livro não possui opções de compra. Ele detalha os componentes utilizados e incentiva os espectadores a analisarem o código fornecido e compartilharem suas versões da página. Por fim, ele introduz o React Query como uma ferramenta para realizar o tratamento de erros ao lidar com APIs.
+
+### Aula 04 - Para saber mais: rotas com estado
+
+Nós trabalhamos com as rotas passando somente o slug na URL. Podemos passar estado também, utilizando o state:
+
+// direto no link, pode passar objetos complexos
+
+```JSX
+<Link to="/categoria" state={{ categoria }}>
+   Apple
+</Link>
+```
+
+E, do lado do componente, consegue obter via hook:
+
+```JSX
+// o import:
+import { useLocation } from "react-router-dom";
+// e o uso, dentro do componente:
+const location = useLocation();
+const categoria = location.state?.categoria;
+```
+
+Para saber mais, você pode dar uma espiada na [documentação oficial](https://reactrouter.com/en/main/start/concepts#location).
+
+Entrevista
+PRÓXIMA ATIVIDADE
+
+Quais são os dois principais tipos de componentes que podem ser declarados no React? E quando utilizamos cada um deles?
+
+### Aula 04 - Entrevista
+
+Quais são os dois principais tipos de componentes que podem ser declarados no React? E quando utilizamos cada um deles?
+
+Componente Funcional e Componente de Classe. Você pode escolher qualquer um dos dois, ambas as opções ainda são mantidas pelo React, embora os componentes funcionais tenham sido criados buscando simplificar a forma de se escrever componentes React.
+
+Na mosca. Componentes em React basicamente retornam um trecho de código JSX que diz o que deve ser renderizado na tela. E esses dois tipos de componentes são os que podemos utilizar hoje em dia.
+
+### Aula 04 - O que aprendemos nessa aula`:`
+
+- Aplicar os conceitos de Higher Order Component e Standalone;
+- Consultar dados da API utilizando o React Query;
+- Desenvolver componentes baseado em layouts do Figma.
+
+## Aula 05 - Programação Defensiva
+
+### Aula 05 - Nem sempre dá certo - Vídeo 01
+

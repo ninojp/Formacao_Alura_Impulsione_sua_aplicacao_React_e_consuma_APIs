@@ -5,6 +5,7 @@ import { obterCategoriaPorSlug } from "../../http";
 import { useParams } from "react-router-dom";
 import Loader from "../../componentes/Loader";
 import { useQuery } from "@tanstack/react-query";
+import ListaLivros from "../../componentes/ListaLivros";
 
 const Categoria = () => {
     // const [categoria, setCategoria] = useState<ICategoria>();
@@ -15,9 +16,7 @@ const Categoria = () => {
     // useEffect(() => {
     //     setEstaCarregando(true);
     //     http.get<ICategoria[]>('categorias', {
-    //         params: {
-    //             slug: params.slug
-    //         }
+    //         params: { slug: params.slug }
     //     }).then(resposta => {
     //         setCategoria(resposta.data[0])
     //         setEstaCarregando(false);
@@ -32,6 +31,7 @@ const Categoria = () => {
     return(
         <section>
            <TituloPrincipal texto={categoria?.nome ?? ''} />
+           <ListaLivros categoria={categoria!} />
         </section>
     );
 };
