@@ -160,3 +160,32 @@ Na mosca. Componentes em React basicamente retornam um trecho de código JSX que
 
 ### Aula 05 - Nem sempre dá certo - Vídeo 01
 
+Nesta aula, o instrutor aborda a importância de lidar com erros de forma defensiva na programação. Ele utiliza o VS Code e a biblioteca React Query para demonstrar um exemplo prático. Ao fazer uma requisição para uma API parada, ele mostra como capturar e exibir mensagens de erro para o usuário. Além disso, ele utiliza o TypeScript para tipar os erros e obter informações mais detalhadas sobre o erro ocorrido. O objetivo é programar de forma mais defensiva, evitando confusões e garantindo que o usuário entenda o que aconteceu. O instrutor menciona que este é apenas o primeiro passo no tratamento de erros e que mais erros serão abordados nos próximos vídeos.
+
+### Aula 05 - Livro não encontrado - Vídeo 02
+
+Nesta aula, o instrutor aborda a programação defensiva e o tratamento de erros. A programação defensiva consiste em antecipar possíveis problemas e evitar falhas ou comportamentos indesejados em um programa. O exemplo apresentado utiliza a biblioteca Axios para fazer requisições HTTP em uma API chamada "api-alurabooks". São mostradas técnicas para lidar com erros conhecidos, como retornar null caso nenhum livro seja encontrado, e também como lidar com erros desconhecidos utilizando o bloco try...catch. A programação defensiva e o tratamento de erros são fundamentais para garantir a qualidade e a confiabilidade de um programa.
+
+### Aula 05 - Para saber mais: Try / Catch
+
+Quando escrevemos código que é passível de gerar erros e exceções, podemos adicionar alguns tratamentos e tomar decisões de acordo com o fluxo da aplicação.
+
+Quando se trata de TypeScript, a sintaxe é a seguinte:
+
+try {
+   // aqui vai o código que queremos tentar executar
+} catch (e) {
+   // declarações para manipular quaisquer exceções, onde recebemos o erro por parâmetro
+}
+
+Se quiser saber ainda mais sobre todas as possibilidades de tratamento de erros, eu super recomendo dar uma olhada aqui na [documentação](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/try...catch) no site da Mozilla.
+
+### Aula 05 - O que aprendemos nessa aula`:`
+
+- Capturar os erros resultantes do useQuery;
+- Escrever código de forma defensiva, evitando acessar uma posição de um array que pode não existir;
+- Alterar o fluxo normal da aplicação, exibindo erros conhecidos para não deixar a pessoa usuária sem informação sobre o que aconteceu por debaixo dos panos.
+
+### Aula 05 - Conclusão - Vídeo 03
+
+Nesta aula, o instrutor parabeniza os alunos por concluírem o curso e evoluírem o projeto AluraBooks. Ele menciona a necessidade de refatorar a página inicial do projeto, especificamente a seção de "Últimos lançamentos", devido à incompatibilidade entre a interface do livro e os dados fornecidos pela API. Durante a refatoração, são abordados conceitos como padrão de implementação, componentes independentes, componentes de ordem superior e hooks. O instrutor também ensina como utilizar o useQuery para obter o estado da requisição, verificar se ela está em carregamento e obter os dados. Além disso, é mencionado um truque extra para renomear propriedades de um objeto utilizando o destruct. O instrutor encerra o vídeo solicitando aos alunos que compartilhem sua experiência no LinkedIn ou no fórum, e se coloca à disposição para responder dúvidas e acompanhar as discussões no fórum. Ele finaliza desejando vida longa e próspera e convidando os alunos para o próximo curso.
