@@ -84,4 +84,10 @@ Nesta aula, o instrutor realiza uma refatoração no código, concentrando a fun
 
 Nesta aula, o instrutor analisa um problema nas requisições feitas na página. Ele percebe que o valor do parâmetro não está sendo atualizado corretamente. Para resolver isso, ele mostra como passar o valor do parâmetro como uma dependência da query. Após fazer essa alteração, ele testa a funcionalidade no navegador e verifica que a requisição é feita corretamente. O instrutor menciona que ainda há mais coisas a serem feitas, como construir os livros da categoria, e convida o aluno para o próximo desafio na próxima aula.
 
-### Aula 03 - 
+### Aula 03 - Nessa aula, você aprendeu como`:`
+
+- Obter dados utilizando o React Query;
+- Extrair e refatorar código já existente;
+- Configurar as dependências de uma Query;
+- Destructuring de objetos.
+
