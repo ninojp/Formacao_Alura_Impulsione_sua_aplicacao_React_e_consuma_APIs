@@ -81,3 +81,41 @@ Isso aí! Na mosca! Todas as requisições realizadas pelo Apollo Cliente vão s
 - Criar e executar queries utilizando o playground;
 - Criar e executar queries a partir de uma aplicação React;
 - Descrever o comportamento de Template literals: Tagged templates.
+
+## Aula 02 - Evoluindo a query
+
+### Aula 02 - Passando parâmetros - Vídeo 1
+
+Nesta aula, o professor ensina como passar parâmetros em consultas GraphQL. Ele mostra um exemplo de consulta que retorna todos os livros de uma aplicação React e explica como adicionar um parâmetro para filtrar os livros por categoria. O professor demonstra como passar o valor do parâmetro tanto no playground quanto no código da aplicação. Ele também ensina como utilizar a função useQuery do Apollo Client para passar as variáveis na consulta. Além disso, o professor mostra como adicionar o campo imagemCapa na consulta para exibir as imagens dos livros na aplicação. A próxima funcionalidade a ser implementada será a opção de filtrar os livros por título.
+
+### Aula 02 - Criando a busca - Vídeo 2
+
+Nesta aula, o instrutor discute a implementação da busca pelo título de livros em um sistema utilizando React. Primeiramente, é adicionado um formulário com um campo de texto e um botão de busca no componente ListaLivros. Em seguida, é utilizado o hook useState para controlar o estado do campo de texto. Depois, são feitas modificações no código para ajustar a posição dos elementos na página e alterações no estilo dos elementos. Por fim, é mostrado como implementar a funcionalidade de busca utilizando o Apollo Client.
+
+### Aula 02 - Buscando com refetch - Vídeo 3
+
+Nesta aula, o instrutor ensina como interceptar o envio de um formulário em uma aplicação React. Ele mostra como adicionar a propriedade onSubmit ao elemento `<form>` e criar uma função chamada buscarLivros para lidar com o evento de envio do formulário. Em seguida, ele utiliza o preventDefault() para evitar que a página seja recarregada ao enviar o formulário.
+
+O instrutor também mostra como utilizar o Apollo Client para fazer uma busca no servidor GraphQL. Ele utiliza a função useQuery para obter os dados da busca e a função refetch para atualizar os dados ignorando o cache. Ele mostra como adicionar a função refetch no useQuery e como chamar essa função na função buscarLivros quando o formulário for enviado.
+
+Além disso, o instrutor mostra como adicionar um parâmetro de busca na query GraphQL e como passar esse parâmetro na função refetch. Ele também mostra como modificar a query GraphQL para receber esse parâmetro.
+
+No final do trecho, o instrutor menciona uma atividade "Para saber mais" que ensina a instalar e configurar o Apollo Client como extensão para o navegador, além de deixar um desafio para os alunos implementarem a busca das categorias por conta própria.
+
+Este trecho do vídeo é importante para entender como interceptar o envio de formulários em uma aplicação React e como utilizar o Apollo Client para fazer buscas no servidor GraphQL. Ele também mostra como adicionar parâmetros de busca nas queries GraphQL e como utilizar a função refetch para atualizar os dados.
+
+### Aula 02 - Para saber mais: Apollo Client DevTools
+
+Apollo Client Devtools é uma extensão do Chrome/Firefox para o cliente GraphQL de código aberto. Esta extensão tem 4 características principais:
+
+Uma versão integrada do Apollo Studio Explorer que permite fazer consultas em seu servidor GraphQL usando a interface de rede do aplicativo diretamente (sem necessidade de configuração).
+Um observador de consulta que mostra quais consultas estão sendo observadas pela página atual, quando essas consultas estão sendo carregadas e quais variáveis essas consultas estão usando.
+Um inspetor de mutação que exibe as mutações feitas nos dados do aplicativo Apollo Client.
+Um inspetor de cache que exibe os dados de cache do Apollo Client. Você pode explorar o cache por meio de uma interface semelhante a uma árvore e pesquisar chaves e valores de campo específicos.
+É uma ótima ferramenta para se ter no cinto de utilidades.
+
+### Aula 02 - O que aprendemos nessa aula`:`
+
+- buscar dados diretamente do servidor com o refetch, ignorando o cache;
+- inspecionar queries utilizando o Apollo Client DevTools;
+- passar multiplos parâmetros para as queries.

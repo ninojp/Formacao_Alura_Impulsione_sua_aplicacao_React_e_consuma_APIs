@@ -9,8 +9,7 @@ const http = axios.create({
         Accept: 'application/json',
         Content: 'application/json'
     }
-})
-
+});
 http.interceptors.request.use(function (config) {
     // Do something before request is sent
     const token = sessionStorage.getItem('token')
@@ -23,8 +22,7 @@ http.interceptors.request.use(function (config) {
     console.log('Erro no interceptor do axios')
     return Promise.reject(error);
   });
-
-export default http
+export default http;
 
 export const obterCategoriaPorSlug = async (slug: string) => {
   const resposta = await http.get<ICategoria[]>('categorias', {
