@@ -3,16 +3,19 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Rotas from './rotas';
+import AbApolloClient from './componentes/AbApolloClient';
 
 const queryClient = new QueryClient()
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Rotas />
-      </BrowserRouter>
-    </QueryClientProvider>
+    <AbApolloClient>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Rotas />
+        </BrowserRouter>
+      </QueryClientProvider>
+    </AbApolloClient>
   );
 }
 
