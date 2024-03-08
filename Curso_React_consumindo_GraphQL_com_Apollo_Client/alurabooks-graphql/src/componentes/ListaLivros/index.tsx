@@ -5,7 +5,6 @@ import { useLivros } from "../../graphql/livros/hooks"
 import { filtroLivrosVar, livrosVar } from "../../graphql/livros/state"
 import { ICategoria } from "../../interfaces/ICategoria"
 import CardLivro from "../CardLivro"
-
 import './ListaLivros.css'
 
 interface ListaLivrosProps {
@@ -13,9 +12,8 @@ interface ListaLivrosProps {
 }
 
 const ListaLivros = ({ categoria }: ListaLivrosProps) => {
-
-    const [textoBusca, setTextoDaBusca] = useState('')
-
+    const [textoBusca, setTextoDaBusca] = useState('');
+    
     useEffect(() => {
         filtroLivrosVar({
             ...filtroLivrosVar(),

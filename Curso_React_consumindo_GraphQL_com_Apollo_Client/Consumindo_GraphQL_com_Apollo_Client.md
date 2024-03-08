@@ -147,3 +147,31 @@ Isso aí! Inclusive nós passamos qual estrategia de cache queremos utilizar dur
 - Encapsular queries em hooks customizados;
 - Criar e manipular variáveis reativas;
 - Utilizar o callback onComplete para gerar efeitos.
+
+## Aula 04 - Buscando Reativamente
+
+### Aula 04 - Um filtro para a todos governar - Vídeo 1
+
+Nesta aula, o instrutor discute sobre como combinar a lista de livros com os filtros. Ele mostra como configurar o estado que representa o filtro de livros no arquivo state.ts, utilizando uma interface para definir a estrutura do filtro. O filtro é definido como totalmente nullable, ou seja, tanto a categoria quanto o título podem não existir. Em seguida, é implementada a variável de filtro utilizando makeVar() do Apollo Client, que inicialmente é um objeto vazio. O instrutor também mostra como definir o filtro no componente ListaLivros, utilizando a variável reativa para obter a categoria. Ele faz algumas modificações no código, removendo trechos desnecessários e passando a categoria para useLivros() através da variável reativa. Por fim, ele menciona que no próximo vídeo será mostrado como fazer requisições para a API quando o usuário buscar algo.
+
+### Aula 04 - Refatorando a busca de livros - Vídeo 2
+
+Nesta aula, o instrutor ensina como implementar a funcionalidade de busca por título de livros em um campo de texto utilizando o React e o Apollo Client. A cada letra digitada a partir da terceira letra, é feita uma requisição à API para obter a lista de livros correspondente à busca. Para isso, é utilizado o useEffect() no componente ListaLivros, que recebe uma função de callback e um array de dependências. É feita a definição do filtro de livros utilizando a função filtroLivrosVar(), que recebe um objeto contendo a categoria atual e o título da busca. Para corrigir alguns problemas, é adicionado um console.log para verificar o código, é passado o filtro para a Query e é feita uma alteração no if dentro do useEffect. Após essas alterações, a funcionalidade de busca por título de livros está funcionando corretamente. O próximo passo é finalizar os últimos detalhes da aplicação, como a implementação da busca dos dados de um livro utilizando o useQuery do Apollo Client.
+
+### Aula 04 - Para saber mais: mergulhando mais fundo no GraphQL
+
+GraphQL é uma linguagem de consulta de dados desenvolvida pelo Facebook. É utilizada para obter dados de uma API (Application Programming Interface) de maneira eficiente e flexível.
+
+Diferente das APIs tradicionais, que retornam os dados em um formato pré-definido (como JSON ou XML), o GraphQL permite que o usuário especifique exatamente quais dados deseja obter em sua consulta. Isso torna o GraphQL ideal para aplicações que precisam de uma grande variedade de dados em diferentes formatos, ou para aplicações que precisam atualizar regularmente suas consultas de dados.
+
+Além disso, o GraphQL permite que os dados sejam obtidos de várias fontes diferentes em uma única consulta, o que é útil em aplicações que precisam combinar dados de diferentes APIs ou bancos de dados.
+
+Em resumo, o GraphQL é uma linguagem de consulta de dados poderosa e flexível que permite aos usuários especificar exatamente quais dados deseja obter de uma API. Isso torna o GraphQL ideal para aplicações que precisam de uma grande variedade de dados em diferentes formatos ou que precisam atualizar regularmente suas consultas de dados.
+
+Se você quiser entender como tudo foi feito do lado do servidor, você pode combinar a [Formação Nest.js](https://cursos.alura.com.br/formacao-nest-js) com os [cursos GraphQL: construindo uma API com Apollo Server](https://cursos.alura.com.br/course/graphql-construindo-api-apollo-server) e [GraphQL: integração de dados e relacionamentos](https://cursos.alura.com.br/course/graphql-integracao-dados-relacionamentos).
+
+### Aula 04 - O que aprendemos nessa aula`:`
+
+- Organizar o código para refatoração incremental;
+- Utilizar a implementação progressiva do cliente GraphQL;
+- Lida com mudanças que quebram o código atual, normalmente chamadas de Breaking Changes em inglês.
