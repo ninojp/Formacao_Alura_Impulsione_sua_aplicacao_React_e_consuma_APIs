@@ -8,32 +8,26 @@ import ModalLoginUsuario from "../ModalLoginUsuario"
 import logo from './assets/logo.png'
 import usuario from './assets/usuario.svg'
 import './BarraNavegacao.css'
-import { gql, useQuery } from "@apollo/client"
-
-const OBTER_CATEGORIAS = gql`
-    query ObterCategorias{
-        categorias{
-        id
-        nome
-        slug
-        }
-    }
-`;
 
 const BarraNavegacao = () => {
+
     const [modalCadastroAberta, setModalCadastroAberta] = useState(false)
     const [modalLoginAberta, setModalLoginAberta] = useState(false)
-    // const [categorias, setCategorias] = useState<ICategoria[]>([])
-    const {data} = useQuery<{categorias: ICategoria[]}>(OBTER_CATEGORIAS);
-    // useEffect(() => {
-    //     http.get<ICategoria[]>('categorias')
-    //         .then(resposta => {
-    //             // console.log(resposta.data)
-    //             setCategorias(resposta.data)
-    //         })
-    // }, []);
+
+    const [categorias, setCategorias] = useState<ICategoria[]>([])
+
+    useEffect(() => {
+        http.get<ICategoria[]>('categorias')
+            .then(resposta => {
+                console.log(resposta.data)
+                setCategorias(resposta.data)
+            })
+    }, [])
+
     let navigate = useNavigate();
+
     const token = sessionStorage.getItem('token')
+
     const [usuarioEstaLogado, setUsuarioEstaLogado] = useState<boolean>(token != null)
 
     const aoEfetuarLogin = () => {
@@ -57,7 +51,7 @@ const BarraNavegacao = () => {
             <li>
                 <a href="#!">Categorias</a>
                 <ul className="submenu">
-                    {data?.categorias.map(categoria => (<li key={categoria.id}>
+                    {categorias.map(categoria => (<li key={categoria.id}>
                         <Link to={`/categorias/${categoria.slug}`}>
                             {categoria.nome}
                         </Link>
@@ -99,7 +93,7 @@ const BarraNavegacao = () => {
                         <Link to="/minha-conta/pedidos">Minha conta</Link>
                     </li>
                     <li>
-                        <BotaoNavegacao
+                        <BotaoNavegacao 
                             texto="Logout"
                             textoAltSrc="Icone representando um usuário"
                             imagemSrc={usuario}
@@ -111,4 +105,5 @@ const BarraNavegacao = () => {
         </ul>
     </nav>)
 }
-export default BarraNavegacao;
+
+export default BarraNavegacao

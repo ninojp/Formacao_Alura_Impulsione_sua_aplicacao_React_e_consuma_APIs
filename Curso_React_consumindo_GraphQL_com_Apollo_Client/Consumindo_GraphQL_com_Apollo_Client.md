@@ -119,3 +119,31 @@ Um inspetor de cache que exibe os dados de cache do Apollo Client. Você pode ex
 - buscar dados diretamente do servidor com o refetch, ignorando o cache;
 - inspecionar queries utilizando o Apollo Client DevTools;
 - passar multiplos parâmetros para as queries.
+
+## Aula 03 - Variáveis Reativas
+
+### Aula 03 - Encapsulando a query - Vídeo 1
+
+Nesta aula, o instrutor ensina como refatorar o código para organizar e reduzir a responsabilidade dos componentes. Ele mostra como encapsular o useQuery do Apollo Client em um hook customizado chamado useLivros, que recebe a categoria como parâmetro e retorna o resultado do useQuery. Além disso, ele move a constante OBTER_LIVROS para um arquivo separado chamado queries.ts. No final, o código fica mais organizado e reutilizável, e os componentes têm menos responsabilidade. O instrutor menciona que no próximo vídeo serão abordados conceitos de variáveis reativas e como utilizá-las com o Apollo Client.
+
+### Aula 03 - Criando e definindo reactiveVars - Vídeo 2
+
+Nesta aula, o instrutor abordou o conceito de variáveis reativas no Apollo Client. Ele mostrou como criar e definir uma variável reativa utilizando a função makeVar(). Em seguida, ele demonstrou como utilizar essa variável no componente ListaLivros utilizando o hook useReactiveVar. O instrutor também mostrou como definir o valor da variável reativa utilizando o hook useLivros e como atualizá-la utilizando callbacks do useQuery. Por fim, ele mencionou a importância de encapsular a camada de acesso aos dados para uma melhor organização do código.
+
+### Aula 03 - Callback onComplete - Vídeo 3
+
+Nesta aula, o instrutor finaliza a refatoração de um código utilizando o Apollo Client e o hook useQuery. Ele mostra como validar manualmente se existem livros através de um if (data?.livros) {} e define a variável reativa. Em seguida, ele atribui essa responsabilidade ao hook useLivros, removendo o conteúdo do if e sua definição. O instrutor adiciona um callback de sucesso no hook useLivros, utilizando o onCompleted, onde chama a função livrosVar() e faz a importação automática do comando import { livrosVar } from "./state". Ele remove o objeto data de dentro de const { data, refetch } = useLivros(categoria) e também remove a responsabilidade do componente de lidar com o processo, removendo o const { refetch }. Ele substitui o data? entre as tags de abertura e fechamento da div de livros por livros.map, utilizando a constante livros como resultado da variável reativa. Essas alterações permitem montar a tela sem quebras de lógica, renderizando automaticamente a lista de livros.
+
+### Aula 03 - Responsabilidades do Apollo Cliente
+
+Qual das seguintes afirmações é verdadeira sobre o React Apollo Client?
+
+O React Apollo Client pode ser usado para armazenar automaticamente dados do GraphQL para uso offline.
+
+Isso aí! Inclusive nós passamos qual estrategia de cache queremos utilizar durante a criação do cliente Apollo.
+
+### Aula 03 - Nessa aula, você aprendeu como`:`
+
+- Encapsular queries em hooks customizados;
+- Criar e manipular variáveis reativas;
+- Utilizar o callback onComplete para gerar efeitos.
