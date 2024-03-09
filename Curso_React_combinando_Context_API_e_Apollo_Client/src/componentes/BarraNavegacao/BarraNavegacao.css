@@ -9,9 +9,9 @@
     margin: 0;
     display: inline-block;
 }
-
 .ab-navbar ul {
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .ab-navbar {
