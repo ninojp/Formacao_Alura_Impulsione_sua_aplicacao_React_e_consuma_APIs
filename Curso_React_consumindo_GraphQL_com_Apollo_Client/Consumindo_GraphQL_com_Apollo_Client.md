@@ -175,3 +175,56 @@ Se você quiser entender como tudo foi feito do lado do servidor, você pode com
 - Organizar o código para refatoração incremental;
 - Utilizar a implementação progressiva do cliente GraphQL;
 - Lida com mudanças que quebram o código atual, normalmente chamadas de Breaking Changes em inglês.
+
+## Aula 05 - Ajustes Finais
+
+### Aula 05 - Loading state - Vídeo 1
+
+Nesta aula, o instrutor trabalhou na página de detalhes de um livro em um projeto chamado Alura Books. Ele explicou como construir uma query do zero no playground do GraphQL e mostrou como obter as informações do livro, como id, imagemCapa, descricao, titulo, slug, sobre, autor, opcoesCompra e tags. O instrutor também mostrou como organizar o código em arquivos separados, como "queries.ts" e "hooks.ts", e como utilizar a função "useQuery()" para obter os dados do GraphQL. Ele destacou a importância de praticar bastante para se familiarizar com uma nova tecnologia. No próximo vídeo, eles irão finalizar alguns ajustes na obtenção de dados.
+
+### Aula 05 - Tratamento de erros - Vídeo 2
+
+Nesta aula, o instrutor aborda o tema de tratamento de erros ao consumir uma URL inexistente em um domínio específico. Ele mostra como utilizar o Apollo Client para lidar com erros no GraphQL. O instrutor ensina a verificar os erros na aba "Resposta" da aba "Rede" do console do navegador. Além disso, ele mostra como obter acesso ao erro do Apollo Client no código, utilizando a variável error. Ele adiciona um console.log para exibir o erro no console e retorna uma mensagem de erro dentro de uma tag `<h1>`. O instrutor destaca que é possível tratar e manipular os erros do Apollo Client da mesma forma que é feito com o useQuery do React Query. Por fim, menciona os ajustes necessários no bloco SobreAutor para o próximo vídeo.
+
+### Aula 05 - Sobre o autor - Vídeo 3
+
+Nesta aula, o instrutor fez os ajustes finais em uma aplicação React que consome GraphQL com Apollo Client. Ele explicou que o campo "autor" não será mais um ID, mas sim uma interface "IAutor". Foram feitas atualizações no componente "AbCard" e no componente "BlocoSobre" para refletir os novos dados. Também foi necessário adicionar o campo "sobre" na consulta "OBTER_LIVRO" em "queries.ts". Por fim, o instrutor mencionou que será implementada uma lista de tags na próxima aula.
+
+### Aula 05 - Listando as tags - Vídeo 4
+
+Nesta aula, o instrutor discute a implementação de um sistema de tags no pacote de componentes do Alura Books. Para isso, é necessário atualizar o pacote para a versão mais recente e resolver um erro de compilação na página de livro. Em seguida, é feita a implementação da lista de tags, atualizando as interfaces e importando o componente AbTag. Por fim, é ajustado o CSS das tags. Com todas essas implementações, as tags são exibidas corretamente na página de livro.
+
+### Aula 05 - Sintaxe das queries
+
+Qual é a sintaxe correta para uma consulta GraphQL?
+
+Alternativa correta
+
+```Graphql
+{
+    obterUsuario {
+        nome, 
+        email
+    }
+}
+```
+
+Exatamente! A palavra-chave query é opcional, portanto, uma consulta pode ser escrita simplesmente como uma seleção de campos dentro de um conjunto de chaves.
+
+### Aula 05 - O que aprendemos nessa aula`:`
+
+- Manipular o estado loading;
+- Manipular o estado error;
+- Corrigir partes quebradas do código devido ao novo formato dos dados;
+- Manter um design system, incrementando funcionalidades de componentes que já existiam.
+
+### Aula 05 - Conclusão - Vídeo 4
+
+Nesta aula de conclusão do curso "React: consumindo GraphQL com Apollo Client", foram abordados os seguintes pontos:
+
+Desenvolvimento de consultas de forma organizada utilizando hooks customizados como useLivros() e useLivro().
+Exploração de conceitos como variáveis reativas para obter dados de um servidor GraphQL.
+Próximo passo da formação será abordar as mutations com o GraphQL, ou seja, o envio de dados para o servidor.
+Importância das mutations para manter uma página de carrinho atualizada conforme produtos entram e saem.
+O treinamento foi concluído com sucesso e os participantes são convidados a continuar a formação no próximo curso.
+Espero ter ajudado! Se tiver mais alguma dúvida, estou à disposição.
