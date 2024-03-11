@@ -90,6 +90,9 @@ const BarraNavegacao = () => {
             {usuarioEstaLogado &&
                 <>
                     <li>
+                        <Link to="/minha-sacola">Carrinho</Link>
+                    </li>
+                    <li>
                         <Link to="/minha-conta/pedidos">Minha conta</Link>
                     </li>
                     <li>
