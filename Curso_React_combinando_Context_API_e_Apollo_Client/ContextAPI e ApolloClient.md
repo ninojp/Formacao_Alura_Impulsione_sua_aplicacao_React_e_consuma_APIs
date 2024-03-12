@@ -272,3 +272,29 @@ Essas são umas das principais opções disponíveis no Apollo Client. É import
 - Atualizar a interface do Contexto.
 - Reaproveitar hooks.
 - Encapsular chamadas ao useMutation.
+
+## Aula 05 - Estado de Loading
+
+### Aula 05 - Loading global - Vídeo 1
+
+Nesta aula, o instrutor abordou a implementação de um indicador de carregamento para o carrinho de compras. Ele explicou que, ao clicar rapidamente para alterar a quantidade de um item no carrinho, várias requisições são disparadas, o que pode gerar um problema. Para resolver isso, foi proposta a criação de um componente para indicar que o carrinho está sendo carregado.O instrutor mostrou o código do arquivo "index.tsx" dentro da pasta "src > contextAPI > carrinho". Ele explicou que é necessário adicionar uma propriedade "carregando" no contexto do carrinho, que será do tipo booleano. Em seguida, ele mostrou como fazer essa adição no código, dentro da interface "ICarrinhoContext".Após isso, o instrutor mostrou como definir o valor padrão do contexto, incluindo a propriedade "carregando" com o valor "false", no código do "CarrinhoContext.Provider".Em seguida, o instrutor mostrou como obter o status de carregamento a partir da função "useCarrinho", que retorna um objeto contendo o valor "data" e "loading". Ele também mostrou como obter o status de carregamento a partir da função "useAdicionarItem", utilizando a desestruturação de array.Por fim, o instrutor mencionou que será necessário criar um componente visual para exibir o indicador de carregamento, mas deixou essa tarefa como um desafio para os espectadores. Ele prometeu disponibilizar o gabarito posteriormente e mencionou que, após o desafio, ele voltará para implementar esse componente e mostrar o resultado final.
+
+### Aula 05 - Múltiplos estados de loading - Vídeo 2
+
+Nesta aula, o instrutor abordou a implementação de um componente de carregamento (loader) em uma aplicação web utilizando CSS. Ele explicou como o componente é estruturado e estilizado, utilizando propriedades como position, margin, display e background. Além disso, mostrou como o componente é utilizado na página do carrinho, sendo exibido apenas quando o carrinho está sendo carregado. O instrutor também demonstrou como testar o comportamento do componente em diferentes velocidades de conexão, utilizando a aba de Rede do navegador. Por fim, destacou a importância de proteger a aplicação contra comportamentos indesejados e incentivou os espectadores a compartilharem o projeto finalizado nas redes sociais.
+
+### Aula 05 - Para saber mais: GraphQL Lazy
+
+O useLazyQuery é um hook que permite que você execute consultas de forma "preguiçosa", ou seja, só quando são realmente necessárias. Isso é útil em aplicações que possuem muitos dados ou consultas que só são executadas em determinadas condições, pois evita o carregamento desnecessário de dados e consultas.
+
+Mas afinal, qual a diferença entre o useLazyQuery e o useQuery? Bem, a principal diferença é que o useLazyQuery só executa a consulta quando é chamado explicitamente, enquanto o useQuery executa a consulta assim que é definido. Isso significa que o useLazyQuery é mais indicado para consultas que só são necessárias em determinadas condições ou em resposta a uma ação do usuário, enquanto o useQuery é mais indicado para consultas que são necessárias assim que a página é carregada.
+
+### Aula 05 - O que aprendemos nessa aula`:`
+
+- Lidar com o loading das mutações.
+- Manipulação de múltiplos estados de carregamento.
+- Alternativa de consulta, com useLazeQuery.
+
+### Aula 05 - Conclusão - Vídeo 3
+
+Nesta aula, o instrutor parabeniza os espectadores pelo término da implementação do carrinho de compras do aplicativo AluraBooks. Ele destaca a importância da organização do código desde o início do desenvolvimento, pois a rotina de adicionar e remover itens, assim como alterar a quantidade de itens, é uma rotina reutilizável em várias partes da aplicação. Por isso, eles decidiram encapsular essa rotina dentro da Context API, onde toda a lógica relacionada ao carrinho de compras está encapsulada. Além disso, eles também adicionaram uma camada extra entre o Apollo Client e o contexto, utilizando hooks customizados para retornar os dados do carrinho e a função de adicionar item. O instrutor menciona que eles conseguiram aplicar todo o aprendizado adquirido durante essa rotina, como por exemplo, ao alterar a quantidade de um item, é gerado um trigger que realiza uma nova consulta automaticamente. Com isso, o carrinho de compras está pronto para a primeira versão do AluraBooks, que agora está entregue. O instrutor finaliza agradecendo a todos que acompanharam a formação desde o início e menciona que eles começaram desenvolvendo componentes visuais e chegaram até o carrinho de compras.

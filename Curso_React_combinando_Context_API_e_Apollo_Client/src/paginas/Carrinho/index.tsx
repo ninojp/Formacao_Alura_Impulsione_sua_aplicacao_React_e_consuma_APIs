@@ -5,13 +5,15 @@ import { formatador } from "../../utils/formatador-moeda";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
 import ItemCarrinho from "./ItemCarrinho";
 import { useCarrinhoContext } from "../../contextApi/carrinho";
+import LoadingCarrinho from "../../componentes/LoadingCarrinho";
 
 const Carrinho = () => {
     // const {data} = useCarrinho();
-    const {carrinho, adicionarItemCarrinho} = useCarrinhoContext();
-
+    const {carrinho, carregando} = useCarrinhoContext();
     return(
         <section className="pagina-carrinho">
+        {carregando && <LoadingCarrinho />}
+
         <TituloPrincipal texto="Minha sacola" />
         <div className="conteudo">
             <h4>Itens selecionados</h4>

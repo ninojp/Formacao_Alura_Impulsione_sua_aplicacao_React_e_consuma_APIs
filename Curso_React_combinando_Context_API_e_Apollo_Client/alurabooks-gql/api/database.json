@@ -598,7 +598,7 @@
         {
           "livroId": 2,
           "opcaoCompraId": 1,
-          "quantidade": 1,
+          "quantidade": 3,
           "livro": {
             "id": 2,
             "categoriaId": 3,

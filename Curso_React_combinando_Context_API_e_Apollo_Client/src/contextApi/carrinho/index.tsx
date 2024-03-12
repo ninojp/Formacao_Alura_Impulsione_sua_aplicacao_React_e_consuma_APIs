@@ -7,22 +7,25 @@ export interface ICarrinhoContext{
     carrinho?: ICarrinho
     adicionarItemCarrinho: (item: IItemCarrinho) => void
     removerItemCarrinho: (item: IItemCarrinho) => void
+    carregando: boolean
 };
 
 export const CarrinhoContext = createContext<ICarrinhoContext>({
     adicionarItemCarrinho: () => null,
-    removerItemCarrinho: () => null
+    removerItemCarrinho: () => null,
+    carregando: false
 });
 
 interface CarrinhoProviderProps{
     children: ReactElement
 };
 const CarrinhoProvider = ({children}: CarrinhoProviderProps) => {
-    const {data} = useCarrinho();
+    const {data, loading: loadingCarrinho} = useCarrinho();
 
     //REGRA dos hooks customizados, só podem ser chamados no PRIMEIRO nivel da função
-    const [adicionaItem] = useAdicionarItem();
-    const [removeItem] = useRemoverItem();
+    const [adicionaItem, {loading: loadingAdiciona}] = useAdicionarItem();
+    const [removeItem, {loading: loadingRemove}] = useRemoverItem();
+
     const adicionarItemCarrinho = (item: IItemCarrinho) => {
     //REGRA dos hooks customizados, eles não podem ser chamados no SEGUNDO nivel(função dentro de outra função)
         adicionaItem({
@@ -52,7 +55,8 @@ const CarrinhoProvider = ({children}: CarrinhoProviderProps) => {
             value={{ 
                 carrinho: data?.carrinho,
                 adicionarItemCarrinho,
-                removerItemCarrinho
+                removerItemCarrinho,
+                carregando: loadingCarrinho || loadingAdiciona || loadingRemove
             }}
         >
             {children}
