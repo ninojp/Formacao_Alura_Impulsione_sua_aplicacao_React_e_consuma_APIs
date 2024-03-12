@@ -1,18 +1,20 @@
 import { gql } from "@apollo/client";
 
 export const OBTER_CARRINHO = gql`
-    query obterCarrinho {
+    query ObterCarrinho {
         carrinho{
         total
         itens{
             quantidade
             opcaoCompra{
-            preco
+                id
+                preco
             }
             livro{
-            titulo
-            descricao
-            imagemCapa
+                id
+                titulo
+                descricao
+                imagemCapa
             autor{
                 nome
             }
@@ -24,5 +26,10 @@ export const OBTER_CARRINHO = gql`
 export const ADICIONAR_ITEM = gql`
     mutation AdicionarIten($item: ItemCarrinhoInput!){
         adicionarItem(item: $item)
+    }
+`;
+export const REMOVER_ITEM = gql`
+    mutation RemoverIten($item: ItemCarrinhoInput!){
+        removerItem(item: $item)
     }
 `;

@@ -52,7 +52,6 @@ const Livro = () => {
 
         })
     }
-
     return (
         <section className="livro-detalhe">
             <TituloPrincipal texto="Detalhes do Livro" />

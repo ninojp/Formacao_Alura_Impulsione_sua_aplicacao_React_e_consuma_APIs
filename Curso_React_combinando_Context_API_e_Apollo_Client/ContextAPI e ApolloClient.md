@@ -228,3 +228,47 @@ Esse é o método mais indicado para atualizar manualmente os dados de uma consu
 - Utilizar o hook useMutation.
 - Explorar o Playground do GraphQL para executar queries.
 - Configurar a ContextAPI com baixo acoplamento ao APolloClient.
+
+## Aula 04 - Removendo itens
+
+### Aula 04 - Alterando quantidades - Vídeo 1
+
+Nesta aula, o instrutor discutiu a implementação de funcionalidades adicionais em um carrinho de compras de uma aplicação web. Ele abordou a necessidade de tratar a quantidade de itens no carrinho, seja adicionando, removendo ou alterando a quantidade. Foi utilizado o GraphQL para enviar as informações atualizadas, e o instrutor mostrou como configurar as query variables no Playground do GraphQL para adicionar um item ao carrinho, especificando o livro, a opção de compra e a quantidade desejada. Além disso, ele explicou que ao adicionar um item, a quantidade é sobrescrita em vez de incrementada, e propôs a criação de uma função chamada "alterarQuantidadeDoItem" que chama a função "adicionarItemCarrinho" com a quantidade atualizada. O instrutor também mostrou como utilizar o hook customizado "useCarrinhoContext" para acessar o contexto do carrinho de compras e realizar a chamada da função. Ao final, ele mencionou a importância desse hook customizado para simplificar o código e evitar a necessidade de utilizar o useContext do React.
+
+### Aula 04 - Depurando erros - Vídeo 2
+
+Nesta aula, o instrutor analisou um erro que ocorreu no console, especificamente o erro 440. Ele explicou que o erro foi causado porque o sistema esperava um livro ID que não foi enviado. Para entender melhor o código e encontrar a origem do erro, o instrutor mostrou o trecho de código em index.tsx que está relacionado ao item do carrinho. Nesse trecho, foi utilizado o atalho "Ctrl + clique" para acessar a função adicionarItemCarrinho que vem do contexto.Em seguida, o instrutor mostrou o código em index.tsx do diretório src > contextApi > carrinho, onde a função adicionarItemCarrinho recebe o item como parâmetro. Ele destacou que o item contém o livro e a opção de compra.O instrutor continuou analisando a implementação da função adicionarItemCarrinho, que está localizada mais abaixo no código, a partir da linha 26. Nesse trecho, foi feita a adição do item no carrinho, passando as variáveis livroId, opcaoCompraId e quantidade. O instrutor mencionou que pode ter ocorrido a falta dos IDs nesse processo.Para verificar se os IDs estavam faltando, o instrutor mostrou o código em queries.ts do diretório src > graphql > carrinho. Ele destacou que na query OBTER_CARRINHO, a opção de compra não possuía o ID. Para corrigir isso, ele sugeriu incluir o ID da opção de compra após o abre chaves de "opcaoCompra". Além disso, ele também sugeriu pedir o ID do livro na mesma query.Após fazer essas alterações, o instrutor recarregou o navegador e verificou que não havia mais erros no console. Ele também limpou as requisições da aba "Rede" e o console. Em seguida, ele tentou alterar a quantidade do livro "Bootstrap 4" e verificou que não havia erros no console e o status da requisição era 200, indicando que algo deu certo.Para confirmar, o instrutor verificou a resposta da requisição na aba "Resposta" e encontrou o JSON com a propriedade "adicionaritem" como verdadeiro. Ele recarregou a página e verificou que a quantidade do livro foi atualizada para 4.No próximo vídeo, o instrutor irá explicar como preparar o refetch da query para atualizar a quantidade quando for alterada.
+
+### Aula 04 - Atualizando os dados do carrinho - Vídeo 3
+
+Nesta aula, o instrutor abordou a necessidade de atualizar a quantidade de um item no carrinho de compras sem recarregar a página. Ele explicou como usar o Apollo Client para informar a outros componentes que a quantidade foi atualizada, sem criar um acoplamento excessivo entre os arquivos. Para isso, foram apresentadas duas funções: "useCarrinho" e "useAdicionarItem". A primeira função utiliza a função "useQuery" do Apollo Client para obter os dados do carrinho, enquanto a segunda função utiliza a função "useMutation" para realizar a mutação de adicionar um item ao carrinho. Foi mostrado como adicionar um objeto de opções como segundo parâmetro da função "useMutation", com a opção "refetchQueries" que recebe um array de strings representando as queries que devem ser refetchadas após a execução da mutação. No exemplo apresentado, a query que deve ser refetchada é a "ObterCarrinho". Dessa forma, quando a mutação "adicionarItem" é executada, o Apollo Client automaticamente refetcha a query "ObterCarrinho" e atualiza o estado. O instrutor também observou que a solução ainda não trata o caso de quando a quantidade é diminuída para zero, prometendo abordar essa questão no próximo vídeo.
+
+### Aula 04 - Tratando quantidade zerada - Vídeo 4
+
+Nesta aula, aprendemos a lidar com a situação em que a quantidade de livros é igual a zero. Foi abordado como adicionar a verificação utilizando um if() para verificar se a quantidade é igual a zero e, caso seja verdadeiro, a função removerItemCarrinho() é chamada para remover o item do carrinho. No entanto, a função removerItemCarrinho() ainda não existia, então aprendemos a criá-la. Foi mostrado como duplicar a linha da função adicionarItemCarrinho e alterar o nome para removerItemCarrinho dentro da interface ICarrinhoContext e no contexto padrão. Em seguida, aprendemos a criar a função removerItemCarrinho no código do arquivo "index.tsx" do contexto do carrinho, utilizando um console.log() para exibir uma mensagem informando que o item está sendo removido. Por fim, aprendemos a passar a função removerItemCarrinho para o value do contexto do carrinho e a utilizá-la dentro do if() para remover o item quando a quantidade for igual a zero.
+
+### Aula 04 - Para saber mais: Suspend, skip e fetchPolicy
+
+No Apollo Client, existem algumas opções podem ser usadas para melhorar a performance da sua aplicação. Vou te explicar algumas delas a seguir:
+
+- suspend: A opção suspend permite que a consulta seja suspensa até que uma determinada condição seja atendida. Isso é útil em casos em que a consulta só precisa ser executada quando um determinado dado estiver disponível, como por exemplo, quando o usuário estiver autenticado ou quando um filtro for aplicado.
+
+- skip: A opção skip permite que a consulta seja pulada completamente se uma determinada condição for atendida. Isso é útil em casos em que a consulta só deve ser executada em determinadas condições, como por exemplo, quando o usuário estiver autenticado ou quando um filtro for aplicado.
+
+- fetchPolicy: A opção fetchPolicy permite que você escolha como a consulta deve ser executada e quando os dados devem ser atualizados. As opções disponíveis são cache-first, cache-and-network, network-only e cache-only.
+
+  - cache-first: A opção cache-first faz com que a consulta seja executada a partir dos dados em cache, e só então a partir da rede. Isso é útil em casos em que os dados em cache são suficientes e não há necessidade de atualizá-los frequentemente.
+
+  - cache-and-network: A opção cache-and-network faz com que a consulta seja executada a partir dos dados em cache, mas também faz uma nova requisição para atualizar os dados em segundo plano. Isso é útil em casos em que os dados em cache são suficientes, mas é importante manter eles atualizados.
+
+  - network-only: essa opção faz com que a consulta seja executada apenas a partir da rede e não utilize os dados em cache. Isso é útil em casos em que os dados precisam ser atualizados frequentemente ou quando os dados em cache são inválidos ou desatualizados.
+
+  - cache-only: A opção cache-only faz com que a consulta seja executada apenas a partir dos dados em cache e não faça uma nova requisição. Isso é útil em casos em que os dados em cache são suficientes e não há necessidade de atualizá-los.
+
+Essas são umas das principais opções disponíveis no Apollo Client. É importante lembrar que o uso dessas opções deve ser feito de forma consciente, para evitar problemas de performance ou de dados incorretos.
+
+### Aula 04 - O que aprendemos nessa aula`:`
+
+- Atualizar a interface do Contexto.
+- Reaproveitar hooks.
+- Encapsular chamadas ao useMutation.
