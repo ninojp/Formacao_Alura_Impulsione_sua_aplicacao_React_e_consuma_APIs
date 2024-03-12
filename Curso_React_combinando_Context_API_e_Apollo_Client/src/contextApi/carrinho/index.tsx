@@ -1,6 +1,6 @@
 import { ReactElement, createContext, useContext } from "react";
 import { ICarrinho } from "../../interfaces/ICarrinho";
-import { useCarrinho } from "../../graphql/carrinho/hooks";
+import { useAdicionarItem, useCarrinho } from "../../graphql/carrinho/hooks";
 import { IItemCarrinho } from "../../interfaces/IItemCarrinho";
 
 export interface ICarrinhoContext{
@@ -19,10 +19,20 @@ const CarrinhoProvider = ({children}: CarrinhoProviderProps) => {
     // const carrinho: ICarrinho = { itens: [], total: 0 }
     const {data} = useCarrinho();
 
+    //REGRA dos hooks customizados, só podem ser chamados no PRIMEIRO nivel da função
+    const [adicionaItem] = useAdicionarItem()
     const adicionarItemCarrinho = (item: IItemCarrinho) => {
-        console.log('[CarrinhoProvider] - adicionarItemCarrinho', item)
+    //REGRA dos hooks customizados, eles não podem ser chamados no SEGUNDO nivel(função dentro de outra função)
+        adicionaItem({
+            variables: {
+                item: {
+                    livroId: item.livro.id,
+                    opcaoCompraId: item.opcaoCompra.id,
+                    quantidade: item.quantidade
+                }
+            }
+        });
     };
-
     return(
         <CarrinhoContext.Provider value={{carrinho: data?.carrinho, adicionarItemCarrinho}}>
             {children}

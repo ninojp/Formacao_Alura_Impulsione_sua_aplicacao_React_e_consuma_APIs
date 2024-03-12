@@ -21,3 +21,8 @@ export const OBTER_CARRINHO = gql`
         }
     }
 `;
+export const ADICIONAR_ITEM = gql`
+    mutation AdicionarIten($item: ItemCarrinhoInput!){
+        adicionarItem(item: $item)
+    }
+`;

@@ -193,3 +193,38 @@ BINGO! Esta opção importa o hook useQuery do pacote correto, o react-apollo. E
 - Organizar os imports e exports para maximizar o reuso.
 - Plugar o GraphQL no contexto, com baixo acoplamento (o nosso contexto nem sabe que o carrinho vem do GraphQL, ele só chama o hook ;).
 
+## Aula 03 - Adicionando itens
+
+### Aula 03 - Criando a primeira mutação - Vídeo 1
+
+Nesta aula, o instrutor ensina como implementar a primeira mutation do AluraBooks, que é responsável por adicionar um item ao carrinho. Ele explica como escrever a mutation no GraphQL Playground e como passar os parâmetros necessários. Além disso, o instrutor demonstra como utilizar variáveis para passar o item a ser adicionado como parâmetro. Por fim, ele mostra como executar a mutation e verificar o resultado no Playground. O próximo passo será fazer a ligação entre a mutation e o botão "Comprar" no React App, o que será abordado em uma próxima aula.
+
+### Aula 03 - Custom hooks e ContextAPI - Vídeo 2
+
+Nesta aula, o instrutor explicou como conectar a mutation do AluraBooks com a parte do código responsável por adicionar itens ao carrinho. Ele mostrou como organizar o código para melhorar a legibilidade e utilizou o useMutation do Apollo Client para enviar os dados da mutation. Além disso, o instrutor ensinou como exportar a constante useAdicionarItem como um custom hook e como importá-la no arquivo principal. Ele também criou a mutation ADICIONAR_ITEM no arquivo queries.ts e explicou a diferença entre a função adicionaItem e o useQuery. Por fim, ele mostrou como utilizar a função adicionaItem dentro da função adicionarItemCarrinho, passando as opções da consulta GraphQL como parâmetro.
+
+### Aula 03 - Adicionando o item - Vídeo 3
+
+Nesta aula, o instrutor mostra como adicionar um item ao carrinho em uma página de detalhes de um livro, utilizando o contexto do carrinho e as funcionalidades do React. Ele começa explicando como conectar os elementos necessários para adicionar um item ao carrinho, destacando o componente AbGrupoOpcoes e o componente AbInputQuantidade. Em seguida, o instrutor cria um estado chamado quantidade utilizando o hook useState e atualiza o onChange e o value do AbInputQuantidade para refletir a quantidade selecionada na tela. Depois, ele adiciona um evento onClick ao botão "Comprar" da página, que chamará a função aoAdicionarItemAoCarrinho, que ainda não foi implementada. O instrutor implementa a função aoAdicionarItemAoCarrinho, que verifica se o livro está carregado e retorna caso não esteja. Ele utiliza o método find para buscar a opção de compra selecionada dentro das opções de compra do livro. Por fim, o instrutor testa o código no navegador, selecionando um livro, escolhendo a opção de compra e a quantidade desejada, e clicando no botão "Comprar". Ele verifica no console do navegador se a chamada GraphQL foi feita corretamente e se o livro foi adicionado ao carrinho.
+
+### Aula 03 - Para saber mais: refetchQueries
+
+Bora falar um pouquinho sobre o refetchQueries e como ele funciona junto com as mutações no Apollo Client?
+
+Aprendemos que as mutações são operações que alteram os dados no backend, como criar, atualizar ou deletar um registro. No Apollo Client, nós usamos a função mutate para disparar uma mutação e atualizar os dados da aplicação.
+
+Mas e se a mutação que você disparou afetar os dados de outras consultas que já foram realizadas na aplicação? É aí que entra o refetchQueries, que é uma opção que nos permite passar para a chamada da função mutate e dizer para o Apollo Client refazer as consultas especificadas após a mutação ser concluída. Dessa forma, os dados das outras consultas são atualizados automaticamente com os novos dados do backend.
+
+### Aula 03 - Atualizando os dados de uma Query
+
+Qual das opções abaixo é a forma mais indicada para atualizarmos manualmente os dados de uma consulta realizada com o useQuery do React Apollo Client?
+
+Utilizando o método refetch passando os novos parâmetros de consulta como argumento.
+
+Esse é o método mais indicado para atualizar manualmente os dados de uma consulta com o useQuery. O método refetch aceita os novos parâmetros de consulta como argumento e dispara a consulta novamente, atualizando os dados exibidos na tela.
+
+### Aula 03 - O que aprendemos nessa aula`:`
+
+- Utilizar o hook useMutation.
+- Explorar o Playground do GraphQL para executar queries.
+- Configurar a ContextAPI com baixo acoplamento ao APolloClient.
